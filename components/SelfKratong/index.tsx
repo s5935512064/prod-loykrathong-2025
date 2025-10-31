@@ -38,6 +38,11 @@ interface KratongMoving {
   lane: string;
 }
 
+// Use a random key for each added Kratong
+function getRandomKey() {
+  return Math.random().toString(36).substring(2, 10) + Date.now();
+}
+
 export const MovingKratong: FC<KratongMoving> = ({
   initialX = 0,
   data,
@@ -87,7 +92,7 @@ export const TopLaneSelf: FC<Props> = ({ sample }): JSX.Element => {
     setTemp(
       temp.concat(
         <MovingKratong
-          key={`lane-t-${item.name}`}
+          key={`lane-t-${item.name}-${getRandomKey()}`}
           data={item}
           initialX={index * 600}
           lane="t"
@@ -119,7 +124,7 @@ export const MidLaneSelf: FC<Props> = ({ sample }): JSX.Element => {
     setTemp(
       temp.concat(
         <MovingKratong
-          key={`lane-m-${item.name}`}
+          key={`lane-m-${item.name}-${getRandomKey()}`}
           data={item}
           initialX={index * 600}
           lane="m"
@@ -151,7 +156,7 @@ export const BotLaneSelf: FC<Props> = ({ sample }): JSX.Element => {
     setTemp(
       temp.concat(
         <MovingKratong
-          key={`lane-b-${item.name}`}
+          key={`lane-b-${item.name}-${getRandomKey()}`}
           data={item}
           initialX={index * 600}
           lane="b"

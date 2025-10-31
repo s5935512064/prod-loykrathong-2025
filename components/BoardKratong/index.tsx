@@ -30,6 +30,11 @@ function getRndDecimal(min: number, max: number) {
   );
 }
 
+// Use a random key for each added Kratong
+function getRandomKey() {
+  return Math.random().toString(36).substring(2, 10) + Date.now();
+}
+
 interface KratongMoving {
   data: any;
   initialX?: number;
@@ -86,7 +91,7 @@ export const TopLaneSpecial: FC<Props> = ({ sample }): JSX.Element => {
     setTemp(
       temp.concat(
         <MovingKratongSpecial
-          key={`lane-t-special-${item.name}`}
+          key={`lane-t-special-${item.name}-${getRandomKey()}`}
           data={item}
           initialX={index * 600}
           lane="t"
@@ -112,7 +117,7 @@ export const MidLaneSpecial: FC<Props> = ({ sample }): JSX.Element => {
     setTemp(
       temp.concat(
         <MovingKratongSpecial
-          key={`lane-m-special-${item.name}`}
+          key={`lane-m-special-${item.name}-${getRandomKey()}`}
           data={item}
           initialX={index * 600}
           lane="m"
@@ -145,7 +150,7 @@ export const BotLaneSpecial: FC<Props> = ({ sample }): JSX.Element => {
     setTemp(
       temp.concat(
         <MovingKratongSpecial
-          key={`lane-b-special-${item.name}`}
+          key={`lane-b-special-${item.name}-${getRandomKey()}`}
           data={item}
           initialX={index * 600}
           lane="b"

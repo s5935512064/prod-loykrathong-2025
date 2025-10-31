@@ -209,9 +209,9 @@ const Background: FC<Props> = (): JSX.Element => {
 
         {/* ###### WATER ######## */}
 
-        {/* <div className="absolute h-1/2 bottom-0 w-full md:translate-y-5 z-[11] ">
+        <div className="absolute h-1/2 bottom-0 w-full md:translate-y-5 z-[11] ">
           <Lake data={kratong} onloy={loy} selfKratong={localItem} />
-        </div> */}
+        </div>
 
         {/* ###### FLOWER ######## */}
         <div className="fixed h-fit w-full bottom-0 translate-y-10 !z-[12] scale-95">
