@@ -6,6 +6,9 @@ import { Lake } from "@/components/Water";
 import dynamic from "next/dynamic";
 const Menu = dynamic(() => import("@/components/Menu"), { ssr: false });
 import AnimatedCounter from "../AnimatedCounter";
+const SocialShared = dynamic(() => import("@/components/SocialShared"), {
+  ssr: false,
+});
 
 interface Props {}
 
@@ -53,7 +56,7 @@ const Background: FC<Props> = (): JSX.Element => {
       try {
         const URL =
           process.env.NEXT_PUBLIC_API_URL +
-          `api/krathong?page=${count}&limit=100&year=2024`;
+          `api/krathong?page=${count}&limit=100&year=2025`;
         const result = await axios.get(URL, {
           headers: {
             "X-CSRF-Token": process.env.NEXT_PUBLIC_CSRF_SECRET,
@@ -113,17 +116,34 @@ const Background: FC<Props> = (): JSX.Element => {
   return (
     <>
       <Menu onLoy={(input: boolean) => startLoy(input)} />
-      <div className="w-full h-[100vh] relative bg-[url('/loykrathong/assets/scene/river-3.webp')] bg-cover bg-center bg-no-repeat flex justify-center items-center">
-        <div className="absolute top-0 left-0 w-full h-[55vh]  !z-[0] bg-[url('/loykrathong/assets/scene/sky9.webp')] bg-cover bg-center bg-no-repeat " />
+      <div className="w-full h-screen overflow-hidden relative bg-[url('/loykrathong/assets/2025/bg-expand-width.webp')] bg-cover bg-center bg-no-repeat flex justify-center items-center bg-[#253152] bg-blend-normal">
+        <div className="absolute top-0 left-0 w-full h-[100vh]  !z-[10]  ">
+          <div className="w-full h-full relative">
+            <Image
+              unoptimized
+              src={"/loykrathong/assets/2025/city-expand-width-v2.webp"}
+              alt="city-item"
+              width="0"
+              height="0"
+              sizes="100vw"
+              priority
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+              className="w-full h-full   "
+            />
+          </div>
+        </div>
 
         <div id="sky" className="w-full h-full relative" />
 
         {/* ###### MOON ######## */}
-        <div className="w-24 h-24 md:w-36 md:h-36 fixed right-7 md:right-16 top-7 md:top-16">
+        <div className="w-24 h-24 md:w-32 md:h-32 absolute right-5 md:right-16 top-7 md:top-10">
           <div className="absolute w-full  scale-95  z-[5]">
             <Image
               unoptimized
-              src={"/loykrathong/assets/scene/moon2.webp"}
+              src={"/loykrathong/assets/2025/moonv2.webp"}
               alt="moon"
               width="0"
               height="0"
@@ -136,7 +156,7 @@ const Background: FC<Props> = (): JSX.Element => {
             />
           </div>
 
-          <div className="absolute top-0 scale-[2.0] z-[2] animate-pulse">
+          <div className="absolute top-0 scale-[2.0] z-[2] opacity-25 animate-pulse grayscale">
             <Image
               unoptimized
               src={"/loykrathong/assets/scene/blur.webp"}
@@ -153,15 +173,16 @@ const Background: FC<Props> = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="w-full absolute inset-0 h-1/2 flex  justify-center gap-4 sm:mt-10   ">
-          <div className="w-full max-w-screen-sm  relative flex flex-col   p-6 z-10 drop-shadow-sm ">
+        <div className="w-full absolute inset-0 h-1/2 flex  justify-center  gap-2 sm:mt-8   ">
+          <div className="w-full max-w-screen-sm  relative flex flex-col items-center gap-4  p-6 z-[10] drop-shadow-sm ">
             <div className="w-full h-fit relative ">
               <Image
-                src={"/loykrathong/assets/scene/title.webp"}
+                src={"/loykrathong/assets/2025/title-2025.webp"}
                 alt="title"
                 width="0"
                 height="0"
                 sizes="100vw"
+                priority
                 style={{
                   objectFit: "contain",
                   objectPosition: "center",
@@ -171,30 +192,66 @@ const Background: FC<Props> = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col  items-center gap-2">
-              <p className="relative text-base md:text-lg   text-white whitespace-nowrap -translate-x-4 ">
-                จำนวนกระทง
+              <p className="relative text-base md:text-lg   text-white whitespace-nowrap  ">
+                ลอยไปแล้ว
                 <span className="px-2 text-5xl font-bold md:text-7xl">
                   <AnimatedCounter from={0} to={kratongCount} />
                 </span>
                 กระทง
               </p>
             </div>
+
+            <div className="relative xmd:hidden">
+              <SocialShared />
+            </div>
           </div>
         </div>
 
         {/* ###### WATER ######## */}
 
-        <div className="absolute h-1/2 bottom-0 w-full md:translate-y-5 z-[11] ">
+        {/* <div className="absolute h-1/2 bottom-0 w-full md:translate-y-5 z-[11] ">
           <Lake data={kratong} onloy={loy} selfKratong={localItem} />
-        </div>
+        </div> */}
 
         {/* ###### FLOWER ######## */}
-        <div className="fixed h-fit w-full bottom-0 translate-y-10 !z-[12]">
+        <div className="fixed h-fit w-full bottom-0 translate-y-10 !z-[12] scale-95">
           <div className="relative w-full h-full">
-            <div className="h-[100px] sm:h-[150px]  w-fit absolute right-[10%] bottom-16 boat">
+            <div className="h-[100px] sm:h-[150px]   w-fit absolute left-[35%] bottom-[-10px] z-0 hidden lg:block">
               <Image
                 unoptimized
-                src={"/loykrathong/assets/scene/lotus_1.webp"}
+                src={"/loykrathong/assets/2025/leaf.webp"}
+                alt="lutus4"
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="h-[100px] sm:h-[150px]  w-fit absolute right-[5%] bottom-[-16px] -skew-x-12 ">
+              <Image
+                unoptimized
+                src={"/loykrathong/assets/2025/leaf-2.webp"}
+                alt="lutus2"
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="h-[100px] sm:h-[150px]  w-fit absolute right-[6%] bottom-10 boat">
+              <Image
+                unoptimized
+                src={"/loykrathong/assets/2025/flower-3.webp"}
                 alt="lutus"
                 width="0"
                 height="0"
@@ -207,11 +264,11 @@ const Background: FC<Props> = (): JSX.Element => {
               />
             </div>
 
-            <div className="h-[100px] sm:h-[150px]  w-fit absolute right-[8%] bottom-2 -skew-x-12 ">
+            <div className="h-[100px] sm:h-[150px]  w-fit absolute right-[13%] bottom-10 ">
               <Image
                 unoptimized
-                src={"/loykrathong/assets/scene/leaf.webp"}
-                alt="lutus2"
+                src={"/loykrathong/assets/scene/lotus_2.webp"}
+                alt="lutus"
                 width="0"
                 height="0"
                 sizes="100vw"
@@ -242,7 +299,7 @@ const Background: FC<Props> = (): JSX.Element => {
             <div className="h-[100px] sm:h-[150px]   w-fit absolute left-[35%] bottom-16 boat-left hidden lg:block">
               <Image
                 unoptimized
-                src={"/loykrathong/assets/scene/lotus_1.webp"}
+                src={"/loykrathong/assets/2025/flower-3.webp"}
                 alt="lutus4"
                 width="0"
                 height="0"
@@ -255,7 +312,39 @@ const Background: FC<Props> = (): JSX.Element => {
               />
             </div>
 
-            <div className="h-[100px] sm:h-[150px]   w-fit absolute right-[35%] bottom-16 boat-left hidden lg:block">
+            <div className="h-[100px] sm:h-[150px]   w-fit absolute left-[8%] bottom-0 boat-left hidden lg:block">
+              <Image
+                unoptimized
+                src={"/loykrathong/assets/2025/flower-3.webp"}
+                alt="lutus4"
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="h-[100px] sm:h-[150px]   w-fit absolute left-[22%] bottom-[-10px] boat-left hidden lg:block">
+              <Image
+                unoptimized
+                src={"/loykrathong/assets/2025/leaf-2.webp"}
+                alt="lutus4"
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="h-[100px] sm:h-[150px]   w-fit absolute right-[37%] bottom-20 boat-left hidden lg:block">
               <Image
                 unoptimized
                 src={"/loykrathong/assets/scene/lotus_2.webp"}
@@ -268,6 +357,22 @@ const Background: FC<Props> = (): JSX.Element => {
                   objectPosition: "center",
                 }}
                 className="w-full h-full"
+              />
+            </div>
+
+            <div className="h-[100px] sm:h-[150px]   w-fit absolute right-[36%] transform  bottom-5 hidden lg:block">
+              <Image
+                unoptimized
+                src={"/loykrathong/assets/scene/lotus_4.webp"}
+                alt="lutus5"
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+                className="w-full h-full scale-x-[-1]"
               />
             </div>
 
@@ -306,7 +411,7 @@ const Background: FC<Props> = (): JSX.Element => {
             <div className="h-[100px] sm:h-[150px]   w-fit absolute left-[14%] bottom-2">
               <Image
                 unoptimized
-                src={"/loykrathong/assets/scene/lotus_5.webp"}
+                src={"/loykrathong/assets/2025/flower-2.webp"}
                 alt="lutus8"
                 width="0"
                 height="0"
@@ -322,7 +427,7 @@ const Background: FC<Props> = (): JSX.Element => {
             <div className="h-[100px] sm:h-[150px]   w-fit absolute right-[28%] bottom-2 hidden lg:block">
               <Image
                 unoptimized
-                src={"/loykrathong/assets/scene/lotus_5.webp"}
+                src={"/loykrathong/assets/2025/flower-2.webp"}
                 alt="lutus9"
                 width="0"
                 height="0"
@@ -351,7 +456,7 @@ const Background: FC<Props> = (): JSX.Element => {
               />
             </div>
 
-            <div className="h-[100px] sm:h-[150px]   w-fit absolute right-[20%] bottom-16">
+            <div className="h-[100px] sm:h-[150px]   w-fit absolute right-[20%] bottom-0">
               <Image
                 unoptimized
                 src={"/loykrathong/assets/scene/lotus_5.webp"}
@@ -385,20 +490,21 @@ const Background: FC<Props> = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="fixed bottom-[-25px] sm:bottom-[-65px] md:bottom-[-50px] h-[250px] !z-[13] flex justify-center translate-y-10 items-end w-fit ">
+        <div className="fixed bottom-[-5%] md:bottom-0 h-80 !z-[13] flex justify-center translate-y-10 items-end w-fit ">
           <div className="relative w-full h-full">
             <Image
               unoptimized
-              src={"/loykrathong/assets/scene/wood-bridge.webp"}
+              src={"/loykrathong/assets/2025/wood-bridge.webp"}
               alt="bridge"
               width="0"
               height="0"
+              priority
               sizes="100vw"
               style={{
                 objectFit: "contain",
-                objectPosition: "bottom",
+                objectPosition: "center",
               }}
-              className="w-full h-full md:scale-125 "
+              className="w-full h-full   "
             />
           </div>
         </div>

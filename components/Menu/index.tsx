@@ -22,7 +22,7 @@ const itemKratong = [
     id: 0,
     name: "kratong-0",
     type: 0,
-    src: "/loykrathong/assets/kratong/kratong-0.webp",
+    src: "/loykrathong/assets/kratong/v1.png",
   },
   {
     id: 1,
@@ -351,21 +351,21 @@ const Menu: FC<Props> = ({ onLoy }): JSX.Element => {
     <>
       <div className=" h-fit fixed bottom-5 z-50 px-6 xmd:px-10  flex flex-col-reverse gap-2 items-center justify-center">
         {localItem && localItem.loy == false ? (
-          <div className="flex items-center gap-2 ">
+          <div className="flex items-center gap-2  ">
             <button
               type="button"
               onClick={() => openModal("edit")}
-              className="-ml-7 bottom-1 xmd:ml-2 left-0 absolute w-9 h-9 text-sm  text-white flex flex-col justify-center items-center "
+              className="-ml-7 bottom-1 xmd:ml-2 left-0 absolute w-9 h-9 text-sm bg-blue-600 rounded-full text-white flex flex-col justify-center items-center "
             >
               <Edit size="5" />
-              <span className="whitespace-nowrap -mt-1">แก้ไขกระทง</span>
+              {/* <span className="whitespace-nowrap -mt-1">แก้ไขกระทง</span> */}
             </button>
             <button
               type="button"
               onClick={loyKratong}
               disabled={loading}
               style={{ backgroundColor: `${loading ? "#ccc" : ""}` }}
-              className="px-7 py-2 to-[#FFDA00] bg-gradient-to-t  from-orange-500 text-amber-800 text-center shadow  rounded-full min-w-[150px]  whitespace-nowrap text-2xl font-semibold hover:brightness-105  transition-all duration-200 z-[60] hover:scale-110"
+              className="py-2 to-[#FFDA00] bg-gradient-to-t  from-orange-500 text-amber-800 text-center shadow  rounded-full min-w-[150px]  whitespace-nowrap text-2xl font-semibold hover:brightness-105  transition-all duration-200 z-[60] hover:scale-110"
             >
               <span className="drop-shadow">
                 {loading ? "กำลังลอยกระทง..." : "ปล่อยกระทง"}
@@ -375,7 +375,7 @@ const Menu: FC<Props> = ({ onLoy }): JSX.Element => {
             <button
               type="button"
               onClick={removeKratong}
-              className="-ml-7 bottom-1 xmd:ml-2 right-0 absolute w-9 h-9 text-sm  text-white flex flex-col justify-center items-center "
+              className="-mr-7 bottom-1 xmd:mr-2 right-0 absolute w-9 h-9 text-sm bg-red-600 rounded-full text-white flex flex-col justify-center items-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -383,7 +383,7 @@ const Menu: FC<Props> = ({ onLoy }): JSX.Element => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className=" shrink-0"
+                className="w-5 h-5 shrink-0"
               >
                 <path
                   strokeLinecap="round"
@@ -392,7 +392,7 @@ const Menu: FC<Props> = ({ onLoy }): JSX.Element => {
                 />
               </svg>
 
-              <span className="whitespace-nowrap -mt-1">ลบ</span>
+              {/* <span className="whitespace-nowrap -mt-1">ลบ</span> */}
             </button>
           </div>
         ) : (
@@ -443,7 +443,7 @@ const Menu: FC<Props> = ({ onLoy }): JSX.Element => {
                       objectFit: "contain",
                       objectPosition: "top",
                     }}
-                    className="w-full h-full -translate-y-10"
+                    className="w-full h-full translate-y-5"
                   />
                 </motion.div>
               </motion.div>

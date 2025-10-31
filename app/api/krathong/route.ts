@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
 
   const page = page_str ? parseInt(page_str, 10) : 1;
   const limit = limit_str ? parseInt(limit_str, 10) : 100;
-  const year = year_str ? parseInt(year_str, 10) : 2024;
+  const year = year_str ? parseInt(year_str, 10) : 2025;
   const skip = (page - 1) * limit;
 
   const token = request.headers.get("X-CSRF-Token");

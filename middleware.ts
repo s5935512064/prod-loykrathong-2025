@@ -15,7 +15,7 @@ const limiter = rateLimit({
 //   },
 // });
 
-const allowedOrigins = ["https://theoldsiam.co.th"];
+const allowedOrigins = ["https://theoldsiam.co.th", "http://localhost:3000"];
 
 function csrfProtect(request: NextRequest, response: NextResponse) {
   let csrfError = null;

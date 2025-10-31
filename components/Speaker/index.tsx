@@ -72,7 +72,7 @@ const Speaker: FC<Props> = (): JSX.Element => {
               </Link>
 
               <p className="text-center  pl-3">
-                Copyright © 2023 {year != "2023" && -year}{" "}
+                Copyright © 2025
                 <Link legacyBehavior href={"https://siamsindhorn.com/"}>
                   <a
                     target="_blank"
@@ -89,12 +89,12 @@ const Speaker: FC<Props> = (): JSX.Element => {
           </div>
 
           <div
-            className="absolute text-center right-6 bottom-6 cursor-pointer text-white w-9 h-9"
+            className="absolute text-center right-2 md:right-6 bottom-6 cursor-pointer text-white w-9 h-9"
             onClick={() => {
               setMute(!mute);
             }}
           >
-            {mute ? <SpeakerMute size="9" /> : <SpeakerUnmute size="9" />}
+            {mute ? <SpeakerMute size="7" /> : <SpeakerUnmute size="7" />}
           </div>
         </div>
       </figure>

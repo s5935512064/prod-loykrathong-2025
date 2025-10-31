@@ -1,10 +1,17 @@
 import localFont from "next/font/local";
-import { Noto_Sans_Thai } from "next/font/google";
+import { Noto_Sans_Thai, Itim } from "next/font/google";
 
 export const notoSanThai = Noto_Sans_Thai({
   subsets: ["thai"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-notosanthai",
+  display: "swap",
+});
+
+export const itim = Itim({
+  subsets: ["thai"],
+  weight: ["400"],
+  variable: "--font-itim",
   display: "swap",
 });
 

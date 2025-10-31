@@ -1,6 +1,5 @@
 "use client";
 
-import type { NextPage } from "next";
 import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,14 +7,16 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Props {
   lane: string;
   info: ManagerKrathong;
+  flip?: boolean;
 }
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const KrathongPopup: FC<Props> = ({ lane, info }): JSX.Element => {
+const KrathongPopup: FC<Props> = ({ lane, info, flip }): JSX.Element => {
   const [toggle, setToggle] = useState(true);
+  const [currentFlip, setCurrentFlip] = useState(flip);
 
   function getOS() {
     var userAgent = window.navigator.userAgent,
@@ -50,19 +51,19 @@ const KrathongPopup: FC<Props> = ({ lane, info }): JSX.Element => {
 
   return (
     <>
-      <div
+      <motion.div
         onClick={() => setToggle(!toggle)}
         className={classNames(
           lane == "t"
-            ? "w-32 h-32 md:w-44 md:h-44 brightness-[85%] hover:brightness-100 active:brightness-110  -translate-y-10 md:-translate-y-7"
+            ? "w-40 h-36 md:w-52 md:h-48 brightness-[85%] hover:brightness-100 active:brightness-110  -translate-y-10 md:-translate-y-7"
             : lane == "m"
-            ? "w-36 h-36 md:w-48 md:h-48 brightness-[95%] hover:brightness-100 active:brightness-110 -translate-y-2 md:-translate-y-3"
-            : "w-36 h-36 md:w-40 md:h-40 hover:brightness-100 active:brightness-110",
-          " relative duration-200 transition-all cursor-pointer !z-[99] ",
-          ""
+            ? "w-60 h-36 md:w-72 md:h-48 brightness-[95%] hover:brightness-100 active:brightness-110 -translate-y-2 md:-translate-y-3"
+            : "w-72 h-36 md:w-80 md:h-48 hover:brightness-100 active:brightness-110",
+          flip ? "scale-x-[-1]" : "scale-x-[1]",
+          " relative duration-200 transition-all cursor-pointer !z-[99] transform"
         )}
       >
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {toggle ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -82,11 +83,11 @@ const KrathongPopup: FC<Props> = ({ lane, info }): JSX.Element => {
               </div>
             </motion.div>
           ) : null}
-        </AnimatePresence>
+        </AnimatePresence> */}
 
         <Image
           unoptimized
-          src={`/loykrathong/assets/kratong/krathong-special-${info.krathong_type}.webp`}
+          src={info.profile}
           alt="kratong"
           width="0"
           height="0"
@@ -98,7 +99,7 @@ const KrathongPopup: FC<Props> = ({ lane, info }): JSX.Element => {
           className="w-full h-full "
           onClick={() => setToggle(!toggle)}
         />
-      </div>
+      </motion.div>
     </>
   );
 };

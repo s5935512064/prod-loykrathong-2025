@@ -12,10 +12,6 @@ interface Props {
   sample: any;
 }
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 function getRndInteger(min: number, max: number) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -48,7 +44,10 @@ export const MovingKratongSpecial: FC<KratongMoving> = ({
 }): JSX.Element => {
   let xPosition = getRndInteger(0, 250);
   let yPosition = getRndInteger(-10, 50);
-  let speed = getRndInteger(200, 350);
+  let speed = getRndInteger(10, 50);
+  let delay = getRndInteger(2000, 5000);
+  let flip = Math.random() > 0.5 ? true : false;
+
   const ref = useRef(null);
 
   return (
@@ -56,25 +55,24 @@ export const MovingKratongSpecial: FC<KratongMoving> = ({
       <motion.div
         ref={ref}
         animate={{
-          x: [-xPosition, 2999],
+          x: flip ? [2999, -xPosition] : [-xPosition, 2999],
           y: [yPosition],
         }}
         transition={{
           x: {
             duration: speed,
             ease: "linear",
-            repeat: Infinity,
-            repeatType: "loop",
           },
+          delay: delay,
         }}
-        className="absolute left-[-100px]"
+        className="absolute"
       >
         <motion.div
           animate={WaterOneData.animate}
           transition={WaterOneData.transition}
-          className="relative"
+          className="relative  "
         >
-          <KrathongPopup lane={lane} info={data} />
+          <KrathongPopup lane={lane} info={data} flip={flip} />
         </motion.div>
       </motion.div>
     </>
@@ -98,17 +96,11 @@ export const TopLaneSpecial: FC<Props> = ({ sample }): JSX.Element => {
   };
 
   useEffect(() => {
+    setTemp([]);
     sample.map((item: any, index: any) => {
       if (item != undefined) addKratong(item, index);
     });
   }, [sample]);
-
-  // const generateKratong = useMemo(() => {
-  //   sample.map((item: any, index: any) => {
-  //     if (item != undefined) addKratong(item, index);
-  //   });
-  //   return <>{temp}</>;
-  // }, [sample]);
 
   return <>{temp}</>;
 };
@@ -137,6 +129,7 @@ export const MidLaneSpecial: FC<Props> = ({ sample }): JSX.Element => {
   // }, [sample]);
 
   useEffect(() => {
+    setTemp([]);
     sample.map((item: any, index: any) => {
       if (item != undefined) addKratong(item, index);
     });
@@ -169,6 +162,7 @@ export const BotLaneSpecial: FC<Props> = ({ sample }): JSX.Element => {
   // }, [sample]);
 
   useEffect(() => {
+    setTemp([]);
     sample.map((item: any, index: any) => {
       if (item != undefined) addKratong(item, index);
     });

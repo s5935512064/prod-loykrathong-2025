@@ -1,14 +1,6 @@
 "use client";
 
-import type { NextPage } from "next";
-import React, {
-  FC,
-  useEffect,
-  useState,
-  Fragment,
-  useMemo,
-  useRef,
-} from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
