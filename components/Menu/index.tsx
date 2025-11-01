@@ -91,6 +91,24 @@ const itemKratong = [
     type: 11,
     src: "/loykrathong/assets/2025/krathong/T12.webp",
   },
+  {
+    id: 12,
+    name: "kratong-12",
+    type: 12,
+    src: "/loykrathong/assets/kratong/kratong-2.webp",
+  },
+  {
+    id: 13,
+    name: "kratong-13",
+    type: 13,
+    src: "/loykrathong/assets/kratong/kratong-10.webp",
+  },
+  {
+    id: 14,
+    name: "kratong-14",
+    type: 14,
+    src: "/loykrathong/assets/kratong/kratong-1.webp",
+  },
 ];
 
 const RUDE_WORDS = [

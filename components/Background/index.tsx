@@ -139,7 +139,7 @@ const Background: FC<Props> = (): JSX.Element => {
         <div id="sky" className="w-full h-full relative" />
 
         {/* ###### MOON ######## */}
-        <div className="w-24 h-24 md:w-32 md:h-32 absolute right-5 md:right-16 top-7 md:top-10">
+        <div className="w-24 h-24 md:w-32 md:h-32 absolute right-5 md:right-16 top-7 md:top-10 ">
           <div className="absolute w-full  scale-95  z-[5]">
             <Image
               unoptimized
@@ -173,7 +173,7 @@ const Background: FC<Props> = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="w-full absolute inset-0 h-1/2 flex  justify-center  gap-2   ">
+        <div className="w-full absolute inset-0 h-1/2 flex  justify-center  gap-2  ">
           <div className="w-full max-w-screen-sm  relative flex flex-col items-center gap-4  p-6 z-[10] drop-shadow-sm ">
             <div className="w-full h-fit relative max-w-md mx-auto p-2 ">
               <Image
