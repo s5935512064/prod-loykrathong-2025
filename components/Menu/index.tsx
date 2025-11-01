@@ -34,26 +34,45 @@ const itemKratong = [
     id: 2,
     name: "kratong-2",
     type: 2,
-    src: "/loykrathong/assets/2025/krathong/T03.png",
+    src: "/loykrathong/assets/2025/krathong/T03.webp",
   },
   {
     id: 3,
     name: "kratong-3",
     type: 3,
-    src: "/loykrathong/assets/2025/krathong/T04.png",
+    src: "/loykrathong/assets/2025/krathong/T04.webp",
   },
   {
     id: 4,
     name: "kratong-4",
     type: 4,
-    src: "/loykrathong/assets/2025/krathong/T05.png",
+    src: "/loykrathong/assets/2025/krathong/T05.webp",
   },
   {
     id: 5,
     name: "kratong-5",
     type: 5,
-    src: "/loykrathong/assets/2025/krathong/T06.png",
+    src: "/loykrathong/assets/2025/krathong/T06.webp",
   },
+  {
+    id: 6,
+    name: "kratong-6",
+    type: 6,
+    src: "/loykrathong/assets/2025/krathong/T07.webp",
+  },
+  {
+    id: 7,
+    name: "kratong-7",
+    type: 7,
+    src: "/loykrathong/assets/2025/krathong/T08.webp",
+  },
+  {
+    id: 8,
+    name: "kratong-8",
+    type: 8,
+    src: "/loykrathong/assets/2025/krathong/T09.webp",
+  },
+
   {
     id: 10,
     name: "kratong-10",
@@ -156,7 +175,16 @@ const Menu: FC<Props> = ({ onLoy }): JSX.Element => {
     setIsOpen(false);
   }
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   function openModal(caseKratong: string) {
+    scrollToTop();
+
     if (caseKratong == "edit") {
       const temp = window.localStorage.getItem("userData");
       if (temp) {

@@ -29,7 +29,7 @@ const Speaker: FC<Props> = (): JSX.Element => {
 
   return (
     <>
-      <figure className="absolute w-full h-full">
+      <figure className="absolute w-full bg-black ">
         <audio
           id="audio-player"
           controls={true}

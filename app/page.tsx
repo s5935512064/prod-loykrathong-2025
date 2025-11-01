@@ -18,7 +18,7 @@ export default function Home() {
       </div>
       <Background />
       <Speaker />
-      {/* <LoykraThongContent /> */}
+      <LoykraThongContent />
     </div>
   );
 }

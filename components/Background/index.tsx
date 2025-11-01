@@ -173,7 +173,7 @@ const Background: FC<Props> = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="w-full absolute inset-0 h-1/2 flex  justify-center  gap-2 sm:mt-8   ">
+        <div className="w-full absolute inset-0 h-1/2 flex  justify-center  gap-2   ">
           <div className="w-full max-w-screen-sm  relative flex flex-col items-center gap-4  p-6 z-[10] drop-shadow-sm ">
             <div className="w-full h-fit relative max-w-md mx-auto p-2 ">
               <Image
@@ -194,7 +194,7 @@ const Background: FC<Props> = (): JSX.Element => {
             <div className="flex flex-col  items-center gap-2">
               <p className="relative text-base md:text-lg   text-white whitespace-nowrap  ">
                 ลอยไปแล้ว
-                <span className="px-2 text-5xl font-bold md:text-7xl">
+                <span className="px-2 text-5xl font-bold md:text-6xl">
                   <AnimatedCounter from={0} to={kratongCount} />
                 </span>
                 กระทง
