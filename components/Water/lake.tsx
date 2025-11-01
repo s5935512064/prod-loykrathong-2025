@@ -155,7 +155,7 @@ const Lake: FC<Props> = ({ data, onloy, selfKratong }): JSX.Element => {
       <div className=" h-full flex flex-col relative ">
         <motion.div
           id="lane-t"
-          className=" h-1/4 flex flex-row items-center   relative  -translate-y-5 "
+          className=" h-1/4 flex flex-row items-center   relative   "
         >
           <TopLane sample={lanes[0]} />
           {boardKrathong ? (

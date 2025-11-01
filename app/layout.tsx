@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { itim, Helvetica } from "@/utils/font";
+import { notoSanThai, Helvetica } from "@/utils/font";
 import Transition from "@/components/Transition";
 
 export const metadata: Metadata = {
@@ -89,7 +89,10 @@ export default function RootLayout({
   const headers = new Headers();
   headers.append("X-CSRF-Token", String(csrf_token));
   return (
-    <html lang="en" className={` ${itim.variable} ${Helvetica.variable}  `}>
+    <html
+      lang="en"
+      className={` ${notoSanThai.variable} ${Helvetica.variable}  `}
+    >
       <GoogleAnalytics gaId={String(ga_id)} />
       <GoogleTagManager gtmId={String(ga_id)} />
 

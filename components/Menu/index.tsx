@@ -31,6 +31,30 @@ const itemKratong = [
     src: "/loykrathong/assets/2025/krathong/T02.webp",
   },
   {
+    id: 2,
+    name: "kratong-2",
+    type: 2,
+    src: "/loykrathong/assets/2025/krathong/T03.png",
+  },
+  {
+    id: 3,
+    name: "kratong-3",
+    type: 3,
+    src: "/loykrathong/assets/2025/krathong/T04.png",
+  },
+  {
+    id: 4,
+    name: "kratong-4",
+    type: 4,
+    src: "/loykrathong/assets/2025/krathong/T05.png",
+  },
+  {
+    id: 5,
+    name: "kratong-5",
+    type: 5,
+    src: "/loykrathong/assets/2025/krathong/T06.png",
+  },
+  {
     id: 10,
     name: "kratong-10",
     type: 10,

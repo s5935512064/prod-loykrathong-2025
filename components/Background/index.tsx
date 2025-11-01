@@ -117,7 +117,7 @@ const Background: FC<Props> = (): JSX.Element => {
     <>
       <Menu onLoy={(input: boolean) => startLoy(input)} />
       <div className="w-full h-screen overflow-hidden relative bg-[url('/loykrathong/assets/2025/bg-expand-width.webp')] bg-cover bg-center bg-no-repeat flex justify-center items-center bg-[#253152] bg-blend-normal">
-        <div className="absolute top-0 left-0 w-full h-[100vh]  !z-[10]  ">
+        <div className="absolute top-0 left-0 w-full h-[100vh]  !z-[10] translate-y-[-5px]  ">
           <div className="w-full h-full relative">
             <Image
               unoptimized
@@ -175,7 +175,7 @@ const Background: FC<Props> = (): JSX.Element => {
 
         <div className="w-full absolute inset-0 h-1/2 flex  justify-center  gap-2 sm:mt-8   ">
           <div className="w-full max-w-screen-sm  relative flex flex-col items-center gap-4  p-6 z-[10] drop-shadow-sm ">
-            <div className="w-full h-fit relative ">
+            <div className="w-full h-fit relative max-w-md mx-auto p-2 ">
               <Image
                 src={"/loykrathong/assets/2025/title-2025.webp"}
                 alt="title"
@@ -490,8 +490,8 @@ const Background: FC<Props> = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="fixed bottom-[-5%] md:bottom-0 h-80 !z-[13] flex justify-center translate-y-10 items-end w-fit ">
-          <div className="relative w-full h-full">
+        <div className="fixed bottom-0 !z-[13] flex justify-center translate-y-5 items-end w-fit pointer-events-none ">
+          <div className="relative w-full h-full max-w-md mx-auto">
             <Image
               unoptimized
               src={"/loykrathong/assets/2025/wood-bridge.webp"}
@@ -502,7 +502,7 @@ const Background: FC<Props> = (): JSX.Element => {
               sizes="100vw"
               style={{
                 objectFit: "contain",
-                objectPosition: "center",
+                objectPosition: "bottom",
               }}
               className="w-full h-full   "
             />

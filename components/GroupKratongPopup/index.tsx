@@ -94,7 +94,7 @@ const GroupKratongPopup: FC<Props> = ({ lane, info, zIndex }): JSX.Element => {
             objectFit: "contain",
             objectPosition: "center",
           }}
-          className="w-full h-full "
+          className="w-full h-full scale-90  "
           onClick={() => setToggle(!toggle)}
         />
       </div>

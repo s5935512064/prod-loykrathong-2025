@@ -3,7 +3,7 @@ import { Noto_Sans_Thai, Itim } from "next/font/google";
 
 export const notoSanThai = Noto_Sans_Thai({
   subsets: ["thai"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500"],
   variable: "--font-notosanthai",
   display: "swap",
 });
